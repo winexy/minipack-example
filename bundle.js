@@ -8,7 +8,7 @@ module.exports = function bundle(graph) {
     ],`;
   }).join('');
 
-  const result = `
+  return `
     (function(modules) {
       function require(id) {
         const [fn, mapping] = modules[id];
@@ -27,6 +27,4 @@ module.exports = function bundle(graph) {
       require(0);
     })({${modules}})
   `;
-
-  return result;
 };
